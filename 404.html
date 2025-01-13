@@ -1,7 +1,8 @@
 <script>
-    // Redirect all 404s to index.html
-    var redirectTo = '/index.html';
-    if (location.pathname !== redirectTo) {
-        location.href = redirectTo + location.search + location.hash;
+    // Redirect to the base path and preserve the original route
+    var pathname = location.pathname;
+    var redirectTo = '/'; // Redirects to the root of your GitHub Pages
+    if (pathname !== redirectTo) {
+        location.href = redirectTo + '#' + pathname + location.search + location.hash;
     }
 </script>
