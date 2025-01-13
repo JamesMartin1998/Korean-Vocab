@@ -3,6 +3,6 @@
     var pathname = location.pathname;
     var redirectTo = '/'; // Redirects to the root of your GitHub Pages
     if (pathname !== redirectTo) {
-        location.href = redirectTo + '#' + pathname + location.search + location.hash;
+        location.href = redirectTo + pathname + location.search + location.hash;
     }
 </script>
