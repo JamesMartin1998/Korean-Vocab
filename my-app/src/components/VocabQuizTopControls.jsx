@@ -1,7 +1,7 @@
 import React from 'react'
 
 const VocabQuizTopControls = (props) => {
-    const {currentIndex} = props;
+    const {currentIndex, quizData} = props;
 
     return (
         <div className="VocabQuizTopControls">
@@ -12,7 +12,7 @@ const VocabQuizTopControls = (props) => {
             */}
 
             <span className='word-count'>
-                Word Number: {currentIndex+1}
+                Word Number: {currentIndex+1} of {quizData.length}
             </span>
         </div>
     )

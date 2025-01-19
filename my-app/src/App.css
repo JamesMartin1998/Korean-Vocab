@@ -43,12 +43,18 @@ body {
   font-weight: 700;
 }
 
+.VocabMenu--links .star-words-link {
+  border-color: gold;
+  color: black;
+  background-color: gold;
+}
+
 .VocabQuizStartScreen--answer-mode button,
 .VocabQuizStartScreen--language-mode button {
   max-width: 180px;
 }
 
-.VocabMenu--links a:hover,
+.VocabMenu--links a:not(.star-words-link):hover,
 .VocabQuizStartScreen--answer-mode button:hover,
 .VocabQuizStartScreen--language-mode button:hover,
 .VocabQuizStartScreen--answer-mode .answer-mode-selected,
@@ -185,4 +191,50 @@ body {
 
 .VocabQuizTopControls {
   margin-bottom: 1rem;
+}
+
+.prev-word {
+  opacity: 0.5;
+  background-color: #fff;
+  border-color: blue;
+  text-decoration: none;
+  color: blue;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 280px;
+  padding: 10px;
+  border: 2px solid blue;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.prev-word.button-active {
+  opacity: 1;
+}
+
+.prev-word:hover {
+  cursor: not-allowed;
+  background-color: blue;
+  color: #fff;
+}
+
+.prev-word.button-active:hover {
+  cursor: pointer;
+}
+
+.prev-star-container {
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+}
+
+.prev-star-container .fa-star {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.prev-star-container .fa-star:before {
+  font-size: 25px;
+  color: gold;
 }

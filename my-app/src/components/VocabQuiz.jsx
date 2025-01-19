@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { useParams } from 'react-router-dom';
 import VocabQuizStartScreen from "./VocabQuizStartScreen";
 import VocabQuizPlay from "./VocabQuizPlay";
+import {StarWordsContext} from '../contexts/StarWordsContext';
 
 const VocabQuiz = () => {
     const { slug } = useParams();
@@ -14,14 +15,20 @@ const VocabQuiz = () => {
         }
     );
 
+    const {starWords, updateStarWords} = useContext(StarWordsContext);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`/assets/data/vocabulary/${slug}.json`);
-                if (!res.ok) return;
-                const data = await res.json();
-                const shuffledData = data.sort(() => Math.random() - 0.5);
-                setQuizData(shuffledData);
+                if (/my-star-words/.test(slug)) {
+                    setQuizData([...starWords].sort(() => Math.random() - 0.5));
+                } else {
+                    const res = await fetch(`/Korean-Vocab/assets/data/vocabulary/${slug}.json`);
+                    if (!res.ok) return;
+                    const data = await res.json();
+                    const shuffledData = data.sort(() => Math.random() - 0.5);
+                    setQuizData(shuffledData);
+                }
             } catch (err) {
                 console.log(err);
             }

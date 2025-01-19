@@ -15,16 +15,26 @@ const VocabQuizPlay = (props) => {
         }
     }
 
+    const loadPrevWord = (e) => {
+        const {className} = e.target;
+        if (!/button-active/.test(className)) return;
+        if (currentIndex > 0) {
+            setCurrentIndex(prevCurrentIndex => prevCurrentIndex-1)
+        }
+    }
+
     return (
         <div className="VocabQuizPlay">
             <VocabQuizTopControls 
                 currentIndex={currentIndex}
+                quizData={quizData}
             />
             <VocabQuizPlayZone 
                 gameSettings={gameSettings}
                 quizData={quizData}
                 currentIndex={currentIndex}
                 loadNextWord={loadNextWord}
+                loadPrevWord={loadPrevWord}
             />
             <VocabQuizBottomControls />
         </div>

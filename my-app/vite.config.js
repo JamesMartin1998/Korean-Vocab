@@ -1,7 +1,19 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  base: '/Korean-Vocab/',
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'dist/index.html',
+          dest: '', // Copy to the root of the output directory as 404.html
+          rename: '404.html',
+        },
+      ],
+    }),
+  ],
+});
