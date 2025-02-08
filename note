@@ -1,0 +1,5 @@
+npm run dev
+
+npm run update-grammar
+npm run build
+npm run deploy

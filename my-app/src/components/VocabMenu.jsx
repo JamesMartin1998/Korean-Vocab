@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
-import { Link } from "react-router-dom";
 import {StarWordsContext} from '../contexts/StarWordsContext';
+import MenuLink from "./MenuLink";
+import Menu from "./Menu";
 
 const VocabMenu = () => {
     const [quizzesData, setQuizzesData] = useState([]);
@@ -20,18 +21,37 @@ const VocabMenu = () => {
         fetchData();
     }, []);
 
-    const links = quizzesData.map((item, index) => (
-        <Link key={index} to={`/${item.slug}`}>{item.title}</Link>
-    ))
+    let links = quizzesData.map((item) => (
+        <MenuLink 
+            key={item.slug}
+            slug={item.slug}
+            title={item.title}
+        />
+    ));
+
+    if (starWords.length) {
+        links = [
+            ...links,
+            <MenuLink
+                key="my-star-words"
+                slug="/my-star-words"
+                title="My Star Words"
+                extraClass="star-words-link"
+            />
+        ];
+    }
 
     return (
-        <div className="VocabMenu">
-            <h1 className="VocabMenu--heading">Choose Vocabulary to Study</h1>
-            <div className="VocabMenu--links">
-                {links}
-                {starWords.length > 0 && <Link to={"/my-star-words"} className="star-words-link">My Star Words</Link>}
-            </div>
-        </div>
+        // <div className="VocabMenu">
+        //     <h1 className="VocabMenu--heading">Choose Vocabulary to Study</h1>
+        //     <div className="VocabMenu--links">
+        //         {links}
+        //     </div>
+        // </div>
+        <Menu
+            title="Choose Vocabulary to Study"
+            links={links}
+        />
     );
 }
 

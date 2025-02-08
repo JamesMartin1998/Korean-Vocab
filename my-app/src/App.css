@@ -8,8 +8,9 @@ body {
 }
 
 /* Vocab Menu Page */
-.VocabMenu,
-.VocabQuiz {
+.Menu,
+.VocabQuiz,
+.GrammarLesson {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -22,13 +23,13 @@ body {
   padding: 1rem;
 }
 
-.VocabMenu--links {
+.Menu--links {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.VocabMenu--links a,
+.MenuLink,
 .VocabQuizStartScreen--answer-mode button,
 .VocabQuizStartScreen--language-mode button,
 .VocabQuizStartScreen--start-game {
@@ -43,7 +44,7 @@ body {
   font-weight: 700;
 }
 
-.VocabMenu--links .star-words-link {
+.Menu--links .star-words-link {
   border-color: gold;
   color: black;
   background-color: gold;
@@ -54,7 +55,7 @@ body {
   max-width: 180px;
 }
 
-.VocabMenu--links a:not(.star-words-link):hover,
+.MenuLink:not(.star-words-link):hover,
 .VocabQuizStartScreen--answer-mode button:hover,
 .VocabQuizStartScreen--language-mode button:hover,
 .VocabQuizStartScreen--answer-mode .answer-mode-selected,
@@ -237,4 +238,30 @@ body {
 .prev-star-container .fa-star:before {
   font-size: 25px;
   color: gold;
+}
+
+/* Grammar Lesson */
+.GrammarLesson {
+  text-align: left;
+}
+
+.GrammarLesson p {
+  margin: 0;
+}
+
+.lesson-title {
+  text-align: center;
+}
+
+.lesson-grammar {
+  color: red;
+  margin-bottom: 16px;
+}
+
+.lesson-example-heading {
+  margin-bottom: 16px;
+}
+
+.special-word {
+  color: red;
 }
